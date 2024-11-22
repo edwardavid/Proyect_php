@@ -1,0 +1,30 @@
+{% extends "pokemons/pokemonBase.html.twig" %}
+
+
+
+{% block contenido %}
+    {% for mensaje in app.flashes('exito') %}
+        <p>{{ mensaje }}</p>
+    {% endfor %}
+
+<h2>Listado de Pokemons </h2>
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for pokemon in pokemons %}
+            <div class="col mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ pokemon.image }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pokemon.nombre }}</h5>
+                        <p class="card-text">{{ pokemon.description }}</p>
+                        <a href="{{ path('showPokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Más Info</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('EditPokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Editar</a>
+                        <a href="{{ path('deletePokemon', {'id': pokemon.id}) }}" class="btn btn-danger">Borrar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

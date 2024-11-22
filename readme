@@ -1,0 +1,47 @@
+pagina sencilla desarrollada con lenguaje php 
+
+uso de composer para gestionar dependencias php 
+.env  para la configuracion del entorno
+proyecto basado en symfony 
+
+uso de doctrine
+twig 
+
+
+Dependencias principales
+ **PHP**: `>=8.2`
+ **Symfony**:
+   `symfony/console`: Herramienta para crear comandos en la línea de comandos.
+   `symfony/dotenv`: Gestión de variables de entorno.
+   `symfony/form`: Componentes para crear y manejar formularios.
+   `symfony/framework-bundle`: Núcleo de las aplicaciones Symfony.
+   `symfony/security-bundle`: Funcionalidades avanzadas de seguridad.
+   `symfony/twig-bundle`: Motor de plantillas Twig.
+   `symfony/yaml`: Procesamiento y manejo de archivos YAML.
+ **Doctrine**:
+   `doctrine/orm`: ORM para gestionar bases de datos de manera sencilla.
+   `doctrine/dbal`: Abstracción para trabajar con diferentes bases de datos.
+   `doctrine/doctrine-bundle`: Integración de Doctrine con Symfony.
+   `doctrine/doctrine-migrations-bundle`: Migraciones para gestionar cambios en la base de datos.
+ **Twig*:
+   `twig/twig`: Motor de plantillas flexible y rápido.
+   `twig/extra-bundle`: Extensiones adicionales para mejorar Twig.
+
+
+Para la instalacion 
+
+clonar repositorio 
+
+Desde terminal 
+
+composer install
+
+
+cp .env .env.local
+Ejecuta las migraciones (si usas base de datos):
+php bin/console doctrine:migrations:migrate
+
+Inicia el servidor de desarrollo:
+symfony server:start
+
+
